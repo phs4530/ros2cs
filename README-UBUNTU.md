@@ -13,9 +13,9 @@
 
 ```bash
 # Install rmw and tests-msgs for your ROS2 distribution
-apt install -y ros-${ROS_DISTRO}-test-msgs
-apt install -y ros-${ROS_DISTRO}-fastrtps ros-${ROS_DISTRO}-rmw-fastrtps-cpp
-apt install -y ros-${ROS_DISTRO}-cyclonedds ros-${ROS_DISTRO}-rmw-cyclonedds-cpp
+sudo apt install -y ros-${ROS_DISTRO}-test-msgs
+sudo apt install -y ros-${ROS_DISTRO}-fastrtps ros-${ROS_DISTRO}-rmw-fastrtps-cpp
+sudo apt install -y ros-${ROS_DISTRO}-cyclonedds ros-${ROS_DISTRO}-rmw-cyclonedds-cpp
 
 # Install vcstool package
 curl -s https://packagecloud.io/install/repositories/dirk-thomas/vcstool/script.deb.sh | sudo bash
