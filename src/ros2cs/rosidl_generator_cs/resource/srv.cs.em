@@ -41,7 +41,7 @@ for member in message.structure.members:
 }
 
 @[for ns in message.structure.namespaced_type.namespaces]@
-namespace @(ns)
+namespace galactic_@(ns)
 {
 @[end for]@
 // message class
@@ -206,8 +206,8 @@ public class @(message_class) : @(internals_interface), @(parent_interface)
         { // TODO - get rcl level constants, e.g. rosidl_typesupport_fastrtps_c__identifier
           // Load typesupport for fastrtps (_c depends on _cpp)
           var loadUtils = DllLoadUtilsFactory.GetDllLoadUtils();
-          IntPtr messageLibraryTypesupportFastRTPS_CPP = loadUtils.LoadLibraryNoSuffix("@(package_name)__rosidl_typesupport_fastrtps_cpp");
-          IntPtr messageLibraryTypesupportFastRTPS_C = loadUtils.LoadLibraryNoSuffix("@(package_name)__rosidl_typesupport_fastrtps_c");
+          IntPtr messageLibraryTypesupportFastRTPS_CPP = loadUtils.LoadLibraryNoSuffix("@(package_name)__rosidl_typesupport_fastrtps_cpp_galactic");
+          IntPtr messageLibraryTypesupportFastRTPS_C = loadUtils.LoadLibraryNoSuffix("@(package_name)__rosidl_typesupport_fastrtps_c_galactic");
       }
     }
   }
@@ -217,12 +217,12 @@ public class @(message_class) : @(internals_interface), @(parent_interface)
     Ros2csLogger logger = Ros2csLogger.GetInstance();
 
     dllLoadUtils = DllLoadUtilsFactory.GetDllLoadUtils();
-    IntPtr messageLibraryTypesupport = dllLoadUtils.LoadLibraryNoSuffix("@(package_name)__rosidl_typesupport_c");
-    IntPtr messageLibraryGenerator = dllLoadUtils.LoadLibraryNoSuffix("@(package_name)__rosidl_generator_c");
-    IntPtr messageLibraryIntro = dllLoadUtils.LoadLibraryNoSuffix("@(package_name)__rosidl_typesupport_introspection_c");
+    IntPtr messageLibraryTypesupport = dllLoadUtils.LoadLibraryNoSuffix("@(package_name)__rosidl_typesupport_c_galactic");
+    IntPtr messageLibraryGenerator = dllLoadUtils.LoadLibraryNoSuffix("@(package_name)__rosidl_generator_c_galactic");
+    IntPtr messageLibraryIntro = dllLoadUtils.LoadLibraryNoSuffix("@(package_name)__rosidl_typesupport_introspection_c_galactic");
     MessageTypeSupportPreload();
 
-    IntPtr nativelibrary = dllLoadUtils.LoadLibrary("@(package_name)_srv_@(service_class_lower)__rosidl_typesupport_c");
+    IntPtr nativelibrary = dllLoadUtils.LoadLibrary("@(package_name)_srv_@(service_class_lower)__rosidl_typesupport_c_galactic");
     IntPtr native_get_typesupport_ptr = dllLoadUtils.GetProcAddress(nativelibrary, "@(c_full_name)_native_get_type_support");
     @(message_class).native_get_typesupport = (NativeGetTypeSupportType)Marshal.GetDelegateForFunctionPointer(
       native_get_typesupport_ptr, typeof(NativeGetTypeSupportType));
